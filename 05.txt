@@ -1,0 +1,18 @@
+addi x5, x0, 1
+jal x1, kk
+jal x0, exit
+kk:bge x5, x10, ll
+   jal x0, k1
+ll:jalr x0, x1, 0
+k1:addi x2, x2, -4
+   sw x10, 0(x2)
+   addi x2, x2, -4
+   sw x1, 0(x2)
+   addi x10, x10, -1
+   jal x1, kk
+   lw x1, 0(x2)
+   addi x2, x2, 4
+   lw x11, 0(x2)
+   addi x2, x2, 4
+   jalr x0, x1, 0
+exit:
